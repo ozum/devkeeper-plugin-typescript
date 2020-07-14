@@ -1,4 +1,4 @@
-import { PluginTestHelper } from "devkeeper";
+import { PluginTestHelper } from "devkeeper"; // eslint-disable-line import/no-extraneous-dependencies
 
 let helper: PluginTestHelper;
 

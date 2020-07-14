@@ -12,12 +12,15 @@ export default async function handler({ intermodular }: HandlerArgs): Promise<vo
   targetModule.package.set("files", union(targetModule.package.get("files") || [], packageJsonFiles)); // Add `packageJsonFiles` to existing files.
 
   const options = { if: (value?: string) => !value?.startsWith("devkeeper") };
+  targetModule.package.set("scripts.execute", "devkeeper execute", options);
   targetModule.package.set("scripts.build", "devkeeper build", options);
   targetModule.package.set("scripts.test", "devkeeper test", options);
   targetModule.package.set("scripts.lint", "devkeeper lint", options);
   targetModule.package.set("scripts.format", "devkeeper format", options);
   targetModule.package.set("scripts.release", "devkeeper release", options);
   targetModule.package.set("scripts.readme", "devkeeper readme", options);
+
+  targetModule.package.sortKeys("scripts", { start: ["execute", "build", "test", "lint", "format", "release", "readme"] });
 
   await Promise.all([
     intermodular.copy("module-files/.gitignore-for-target", ".gitignore", { overwrite: true }),

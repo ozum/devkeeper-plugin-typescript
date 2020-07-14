@@ -16,6 +16,8 @@ Devkeeper TypeScript plugin.
 
 
 # Installation
+  
+
 # Synopsis
 
 ```ts

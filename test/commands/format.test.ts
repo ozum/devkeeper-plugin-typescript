@@ -1,4 +1,4 @@
-import { PluginTestHelper } from "devkeeper";
+import { PluginTestHelper } from "devkeeper"; // eslint-disable-line import/no-extraneous-dependencies
 
 let helper: PluginTestHelper;
 
@@ -13,7 +13,7 @@ beforeAll(async () => {
 
 describe("prettier", () => {
   it("should detect formatting error.", async () => {
-    const stdout = await helper.runCommand("format");
+    const { stdout } = await helper.runCommand("format");
     expect(stdout).toContain("package.json\nCode style issues found in the above file(s)");
   });
 });

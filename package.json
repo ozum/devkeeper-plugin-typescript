@@ -2,6 +2,9 @@
   "name": "devkeeper-plugin-typescript",
   "version": "0.0.1",
   "description": "Devkeeper TypeScript plugin.",
+  "author": {
+    "name": "Özüm Eldoğan"
+  },
   "keywords": [
     "devkeeper",
     "plugin"
@@ -27,19 +30,20 @@
   "homepage": "https: //github.com/ozum/devkeeper-plugin-typescript",
   "bugs": "https: //github.com/ozum/devkeeper-plugin-typescript/issues",
   "repository": "github:ozum/devkeeper-plugin-typescript",
-  "author": {
-    "name": "Özüm Eldoğan"
-  },
   "license": "MIT",
   "scripts": {
-    "file:watch": "ts-node-dev --no-notify --respawn --transpileOnly --compiler-options '{ \"module\": \"commonjs\" }'",
-    "format": "devkeeper format",
+    "execute": "devkeeper execute",
+    "build": "devkeeper build",
+    "test": "devkeeper test --testPathIgnorePatterns '(src/)|(dist/)' --coverage false --cache",
     "lint": "devkeeper lint",
-    "readme": "devkeeper readme",
+    "format": "devkeeper format",
     "release": "devkeeper release",
-    "test": "devkeeper test --coverage false --testTimeout 10000 --testPathIgnorePatterns '(src/)|(dist/)'"
+    "readme": "devkeeper readme",
+    "keep": "devkeeper update"
   },
   "dependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.0.23",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
@@ -63,12 +67,9 @@
     "typescript": "^3.9.6"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.1",
     "@types/lodash.union": "^4.6.6",
-    "@types/tmp": "^0.2.0",
     "@types/yargs": "^15.0.5",
     "cli-docs-generator": "^1.0.3",
-    "devkeeper": "^1.0.0",
     "intermodular": "^0.34.0",
     "yargs": "^15.4.1"
   }

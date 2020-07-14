@@ -1,4 +1,4 @@
-import { PluginTestHelper } from "devkeeper";
+import { PluginTestHelper } from "devkeeper"; // eslint-disable-line import/no-extraneous-dependencies
 
 let helper: PluginTestHelper;
 
@@ -11,5 +11,5 @@ describe("prettier", () => {
     await helper.runCommand("build");
     const fileExists = await helper.targetModule.exists("dist/address.d.ts");
     expect(fileExists).toBe(true);
-  });
+  }, 10000);
 });

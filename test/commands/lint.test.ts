@@ -1,4 +1,4 @@
-import { PluginTestHelper } from "devkeeper";
+import { PluginTestHelper } from "devkeeper"; // eslint-disable-line import/no-extraneous-dependencies
 
 let helper: PluginTestHelper;
 
@@ -13,7 +13,7 @@ beforeAll(async () => {
 
 describe("lint", () => {
   it("should detect lint error.", async () => {
-    const stdout = await helper.runCommand("lint");
+    const { stdout } = await helper.runCommand("lint");
     expect(stdout).toContain("error  Delete `·`  prettier/prettier");
   }, 10000);
 });

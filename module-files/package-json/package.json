@@ -8,8 +8,5 @@
   "homepage": "https: //github.com/{{ targetModule.package.get('author.github') or '_____user_____' }}/{{ targetModule.nameWithoutUser }}",
   "bugs": "https: //github.com/{{ targetModule.package.get('author.github') or '_____user_____' }}/{{ targetModule.nameWithoutUser }}/issues",
   "repository": "github:{{ targetModule.package.get('author.github') or '_____user_____' }}/{{ targetModule.nameWithoutUser }}",
-  "license": "MIT",
-  "scripts": {
-    "file:watch": "ts-node-dev --no-notify --respawn --transpileOnly --compiler-options '{ \"module\": \"commonjs\" }'"
-  }
+  "license": "MIT"
 }

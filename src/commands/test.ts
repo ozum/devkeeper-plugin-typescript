@@ -14,7 +14,8 @@ const builder = (localYargs: typeof yargs): typeof yargs => {
 
 async function handler({ intermodular, lintStaged, devkeeper, exitOnProcessFailure = true, ...extraArgs }: LintArgs): Promise<any> {
   // jest --bail --coverage --findRelatedTests --config=jest.config.js
-  const args = lintStaged ? ["--bail", "--coverage", "--findRelatedTests", "--config jest.config.js"] : ["--coverage"];
+  const args = lintStaged ? ["--bail", "--coverage", "--findRelatedTests", "--config", "jest.config.js"] : ["--coverage"];
+  console.log(devkeeper.cleanArgs(extraArgs, { args, exclude: ["lintStaged"] }).join(" ")); // eslint-disable-line no-console
   await intermodular.targetModule.execute("jest", devkeeper.cleanArgs(extraArgs, { args, exclude: ["lintStaged"] }), {
     env: { NODE_ENV: "test" },
     exitOnProcessFailure,
